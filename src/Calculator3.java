@@ -139,9 +139,9 @@ public class Calculator3  implements ActionListener{
                 char oper = varop2.charAt(0);
                 RomanToNumber rom1c = new RomanToNumber();
                 RomanToNumber rom3c = new RomanToNumber();
-                int a = rom1c.romanToDecimal(var1);
-                int b = rom3c.romanToDecimal(var3);
-                int res1 = math(a, b, oper);
+                double a = rom1c.romanToDecimal(var1);
+                double b = rom3c.romanToDecimal(var3);
+                int res1 = (int)math(a, b, oper);
                 NumberToRoman sumr = new NumberToRoman ();
                 String q = sumr.intToRoman(res1);
                 textField.setText(q);
@@ -152,6 +152,7 @@ public class Calculator3  implements ActionListener{
                 operator = varop2.charAt(0);
                 num2 = Double.parseDouble(var3);
 
+                result = math(num1, num2, operator);
                 switch (operator) {
                     case '+' -> result = num1 + num2;
                     case '-' -> result = num1 - num2;
@@ -180,8 +181,8 @@ public class Calculator3  implements ActionListener{
 
 
     }
-    public static int math(int x, int y, char z){
-        int res = 0;
+    public static double math(double x, double y, char z){
+        double res = 0;
         if (1 <= x && 10 >= x && 1 <= y && 10 >= y) {
             if (z == '+') {res = x + y;}
             else if (z == '-') {res = x - y;}
