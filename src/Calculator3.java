@@ -141,8 +141,19 @@ public class Calculator3  implements ActionListener{
                 double a = rom1c.romanToDecimal(var1);
                 double b = rom3c.romanToDecimal(var3);
                 res1 = (int)math(a, b, oper);
-                String q = NumberToRoman.intToRoman(res1);
-                textField.setText(q);
+                if (res1 == 0) {
+                    textField.setText("0");
+                }
+                else if (res1 < 0) {
+                    res1 = Math.abs(res1);
+                    String res2 = NumberToRoman.intToRoman(res1);
+                    textField.setText("-" + res2);
+                }
+                else {
+                    String q = NumberToRoman.intToRoman(res1);
+                    textField.setText(q);
+                }
+
 
             }
 
@@ -153,7 +164,7 @@ public class Calculator3  implements ActionListener{
 
                 result = math(num1, num2, operator);
                 textField.setText(String.valueOf(result));
-                //num1 = result;
+
             }
         }
         if(e.getSource() == clrButton) {
