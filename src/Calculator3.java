@@ -142,8 +142,8 @@ public class Calculator3  implements ActionListener{
                 double a = rom1c.romanToDecimal(var1);
                 double b = rom3c.romanToDecimal(var3);
                 int res1 = (int)math(a, b, oper);
-                NumberToRoman sumr = new NumberToRoman ();
-                String q = sumr.intToRoman(res1);
+                //NumberToRoman sumr = new NumberToRoman ();
+                String q = NumberToRoman.intToRoman(res1);
                 textField.setText(q);
 
             }
